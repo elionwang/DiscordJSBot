@@ -43,6 +43,9 @@ client.on('message', message => {
   else if (command === 'uptime'){
     message.channel.send(`\`Uptime: ${ms(client.uptime)}\``)
   }
+  else if (command === 'userinfo'){
+    client.commands.get('userinfo').execute(message, args, Discord)
+  }
 })
 
 mongoose.connect(MONGODB_SRV, {
