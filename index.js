@@ -43,9 +43,6 @@ client.on('message', message => {
   else if (command === 'uptime'){
     message.channel.send(`\`Uptime: ${ms(client.uptime)}\``)
   }
-  else if (command === 'userinfo'){
-    client.commands.get('userinfo').execute(message, args, Discord)
-  }
   else if (command === 'whois'){
     client.commands.get('whois').execute(message, args, Discord)
   }
