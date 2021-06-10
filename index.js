@@ -49,6 +49,9 @@ client.on('message', message => {
   else if (command === 'whois'){
     client.commands.get('whois').execute(message, args, Discord)
   }
+  else if (command === 'eval'){
+    client.commands.get('eval').execute(message, args, client)
+  }
 })
 
 mongoose.connect(MONGODB_SRV, {
