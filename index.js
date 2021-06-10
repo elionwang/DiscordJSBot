@@ -1,22 +1,22 @@
-const TOKEN = process.env['TOKEN']
+const TOKEN = process.env['TOKEN'];
 
-const keepAlive = require('./server.js')
+const keepAlive = require('./server.js');
 
-const prefix = process.env['prefix']
+const prefix = process.env['prefix'];
 
-const Discord = require('discord.js')
+const Discord = require('discord.js');
 
-const client = new Discord.Client()
+const client = new Discord.Client();
 
-const ms = require('pretty-ms')
+const ms = require('pretty-ms');
 
-const fs = require('fs')
+const fs = require('fs');
 
 const mongoose = require('mongoose');
 
 const MONGODB_SRV = process.env['MONGODB_SRV'];
 
-client.commands = new Discord.Collection()
+client.commands = new Discord.Collection();
 
 const commandFiles = fs.readdirSync('./commands/').filter(file => file.endsWith('.js'))
 for(const file of commandFiles){
@@ -68,6 +68,6 @@ mongoose.connect(MONGODB_SRV, {
   console.log(err)
 })
 
-keepAlive()
+keepAlive();
 
 client.login(TOKEN)
