@@ -49,6 +49,9 @@ client.on('message', message => {
   else if (command === 'eval'){
     client.commands.get('eval').execute(message, args, client)
   }
+  else if (command === 'avatar'){
+    client.commands.get('avatar').execute(message, args, Discord)
+  }
 })
 
 mongoose.connect(MONGODB_SRV, {

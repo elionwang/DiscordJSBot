@@ -7,6 +7,7 @@ server.all('/', (req, res)=>{
     res.send(`Bot status: \nonline`)
 })
 function keepAlive(){
-    server.listen(3000, ()=>{console.log("The server is ready!")});
+    server.listen(3000, ()=>{
+      console.log("The server is ready!")});
 }
 module.exports = keepAlive;
