@@ -16,7 +16,7 @@ module.exports = {
       { name: 'Owner', value: message.guild.owner.user.tag },
       { name: 'Member Count', value: message.guild.memberCount },
       { name: 'Creation Date', value: new Date(message.guild.createdTimestamp).toLocaleDateString()},
-      { name: 'Role Count', value: `${roles.length}` },
+      { name: 'Role Count', value: `${roles.length - 1}` },
       { name: 'Emojis', value: `${emojis.size}` },
       { name: 'Text Channels', value: `${channels.filter(channel => channel.type === 'text').size}` },
       { name: 'Voice Channels', value: `${channels.filter(channel => channel.type === 'voice').size}` },

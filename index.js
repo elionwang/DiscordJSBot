@@ -55,6 +55,9 @@ client.on('message', message => {
   else if (command === 'serverinfo'){
     client.commands.get('serverinfo').execute(message, args, Discord, client)
   }
+  else if (command === 'membercount'){
+    client.commands.get('membercount').execute(message, args, Discord)
+  }
 })
 
 mongoose.connect(MONGODB_SRV, {
