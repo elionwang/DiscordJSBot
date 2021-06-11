@@ -58,6 +58,9 @@ client.on('message', message => {
   else if (command === 'membercount'){
     client.commands.get('membercount').execute(message, args, Discord)
   }
+  else if (command === 'emotes'){
+    client.commands.get('emotes').execute(message, args, Discord)
+  }
 })
 
 mongoose.connect(MONGODB_SRV, {
