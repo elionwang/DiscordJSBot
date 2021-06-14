@@ -1,5 +1,7 @@
 const TOKEN = process.env['TOKEN'];
 
+const db = require('quick.db');
+
 const keepAlive = require('./server.js');
 
 const prefix = process.env['prefix'];
@@ -59,7 +61,7 @@ client.on('message', message => {
     client.commands.get('membercount').execute(message, args, Discord)
   }
   else if (command === 'emotes'){
-    client.commands.get('emotes').execute(message, args, Discord)
+    client.commands.get('emotes').execute(client, message, args, Discord)
   }
 })
 
