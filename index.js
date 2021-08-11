@@ -1,5 +1,13 @@
 const TOKEN = process.env['TOKEN'];
 
+const bs_token = process.env['bs_token']
+
+const brawlstars = require('brawlstars.js');
+
+
+
+const bsclient = new brawlstars.Client(bs_token)
+
 const db = require('quick.db');
 
 const keepAlive = require('./server.js');
@@ -34,7 +42,11 @@ client.on('ready', () => {
   console.log(`Client ready on ${client.user.tag}`)
 })
 
-client.on('message', message => {
+client.on('message', async message => {
+  // const player = await bsclient.getPlayer((message.content.slice(11)));
+  // const brawlers = await bsclient.getBrawlers()
+
+
   if(!message.content.startsWith(prefix) || message.author.bot) return;
 
   const args = message.content.slice(prefix.length).split(/ +/g)
@@ -62,6 +74,15 @@ client.on('message', message => {
   }
   else if (command === 'emotes'){
     client.commands.get('emotes').execute(client, message, args, Discord)
+  }
+  else if (command === 'profile'){
+    client.commands.get('profile').execute(message, args, Discord, bsclient, player, brawlers)
+  }
+  else if (command === 'ban'){
+    client.commands.get('ban').execute(message, args, Discord)
+  }
+  else if (command === 'kick'){
+    client.commands.get('kick').execute(message, args, Discord)
   }
 })
 
